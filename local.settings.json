@@ -1,0 +1,8 @@
+{
+  "Values": {
+    "AzureWebJobsStorage": "Endpoint=sb://drpacdev.servicebus.windows.net/;SharedAccessKeyName=SendListen;SharedAccessKey=fpqxBIhtNjLjlJrZuDtJ0ok/i5WlxmWSIqBj9B2jqNE=",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureServiceBus": "Endpoint=sb://drpacdev.servicebus.windows.net/;SharedAccessKeyName=SendListen;SharedAccessKey=fpqxBIhtNjLjlJrZuDtJ0ok/i5WlxmWSIqBj9B2jqNE="
+  },
+  "IsEncrypted": false
+}

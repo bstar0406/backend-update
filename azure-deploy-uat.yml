@@ -1,0 +1,16 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7'
+    addToPath: true
+    architecture: 'x64'
+- script: |
+    git push -f "https://$DEPLOYMENT_USERNAME:$DEPLOYMENT_PASSWORD@$UAT_DEPLOYMENT_URL" HEAD:master
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/uat'))
+  env:
+    DEPLOYMENT_URL: $(UAT_DEPLOYMENT_URL)
+    DEPLOYMENT_USERNAME: $(DEPLOYMENT_USERNAME)
+    DEPLOYMENT_PASSWORD: $(DEPLOYMENT_PASSWORD)
+  displayName: 'UAT LocalGit Deploy'

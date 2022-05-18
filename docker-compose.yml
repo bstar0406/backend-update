@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  BE:
+      build : .
+      image : "backend"
+      command: python manage.py runserver 0.0.0.0:8000
+      volumes:
+        - .:/pac_new_backend
+      ports:
+        - 8000:8000
+      environment:
+        - HOSTED_ENVIRONMENT=${HOSTED_ENVIRONMENT}
+        - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+        - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+        - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+        - AZURE_VAULT_URL=${AZURE_VAULT_URL}

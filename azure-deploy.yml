@@ -1,0 +1,22 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.9'
+    addToPath: true
+    architecture: 'x64'
+- script: |
+    git push -f "https://$DEPLOYMENT_USERNAME:$DEPLOYMENT_PASSWORD@$DEPLOYMENT_URL" HEAD:develop
+  env:
+    DEPLOYMENT_URL: $(DEPLOYMENT_URL)
+    DEPLOYMENT_USERNAME: $(DEPLOYMENT_USERNAME)
+    DEPLOYMENT_PASSWORD: $(DEPLOYMENT_PASSWORD)
+  displayName: 'App Service - Develop LocalGit Deploy'
+- script: |
+    git push -f "https://$DEPLOYMENT_USERNAME:$DEPLOYMENT_PASSWORD@$DEPLOYMENT_URL_FUNCTIONS" HEAD:master
+  env:
+    DEPLOYMENT_URL: $(DEPLOYMENT_URL_FUNCTIONS)
+    DEPLOYMENT_USERNAME: $(DEPLOYMENT_USERNAME)
+    DEPLOYMENT_PASSWORD: $(DEPLOYMENT_PASSWORD)
+  displayName: 'Functions - Develop LocalGit Deploy'

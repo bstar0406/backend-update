@@ -1,0 +1,14 @@
+*.pyc
+env/
+.vscode/
+#**/migrations
+*.log
+.coverage
+deploy/azure_env
+.idea
+/pac/blobs/data/
+/pac/media/
+/sandbox
+
+.python_packages
+__pycache__

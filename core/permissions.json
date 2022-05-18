@@ -1,0 +1,48 @@
+{
+    "Pricing Manager": {
+        "/api/authentication_demo/": {
+            "POST": true,
+            "PUT": false,
+            "PATCH": false,
+            "GET": false,
+            "DELETE": false
+        },
+        "/api/metadata/": {
+            "POST": true,
+            "PUT": false,
+            "PATCH": false,
+            "GET": true,
+            "DELETE": false
+        },
+        "/api/dockcosts/dashboard/:id/": {
+            "POST": false,
+            "PUT": false,
+            "PATCH": false,
+            "GET": true,
+            "DELETE": false
+        }
+    },
+    "Pricing Analyst": {
+        "/api/authentications_demo/": {
+            "POST": false,
+            "PUT": false,
+            "PATCH": false,
+            "GET": false,
+            "DELETE": false
+        },
+        "/api/metadata/": {
+            "POST": false,
+            "PUT": false,
+            "PATCH": false,
+            "GET": false,
+            "DELETE": false
+        },
+        "/api/dockcosts/dashboard/:id/": {
+            "POST": false,
+            "PUT": false,
+            "PATCH": false,
+            "GET": false,
+            "DELETE": false
+        }
+    }
+}

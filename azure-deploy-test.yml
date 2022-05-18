@@ -1,0 +1,15 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7'
+    addToPath: true
+    architecture: 'x64'
+- script: |
+    git push -f "https://$DEPLOYMENT_USERNAME:$DEPLOYMENT_PASSWORD@$TEST_DEPLOYMENT_URL" HEAD:refs/heads/master
+  env:
+    DEPLOYMENT_URL: $(TEST_DEPLOYMENT_URL)
+    DEPLOYMENT_USERNAME: $(DEPLOYMENT_USERNAME)
+    DEPLOYMENT_PASSWORD: $(DEPLOYMENT_PASSWORD)
+  displayName: 'Test LocalGit Deploy'
